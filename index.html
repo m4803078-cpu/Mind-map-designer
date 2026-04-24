@@ -206,20 +206,20 @@
 
     // 2. كود تكبير الصور (الاحترافي)
     document.querySelectorAll('.card img').forEach(image => {
-        image.onclick = () => {
+        image.onclick = (e) => {
+            e.stopPropagation();
             const modal = document.getElementById('myModal');
             const fullImg = document.getElementById('imgFull');
             modal.style.display = "block";
             fullImg.src = image.src;
         };
-    });
+            });
 </script>
 
 <div id="myModal" class="modal" onclick="this.style.display='none'">
-    <img class="modal-content" id="imgFull" style="pointer-events: none;">
+    <img class="modal-content" id="imgFull" onclick="this.parentElement.style.display='none'">
 </div>
-    
-    
 
 </body>
 </html>
+
