@@ -209,13 +209,14 @@
         image.onclick = () => {
             document.getElementById('myModal').style.display = "block";
             document.getElementById('imgFull').src = image.src;
-        };
-    });
 </script>
 
 <div id="myModal" class="modal" onclick="this.style.display='none'">
-    <img class="modal-content" id="imgFull">
+    <img class="modal-content" id="imgFull" onclick="document.getElementById('myModal').style.display='none'">
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
