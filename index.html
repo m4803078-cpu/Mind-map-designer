@@ -192,27 +192,31 @@
     </section>
 
     <script>
-        const btn = document.getElementById('theme-toggle');
-        const body = document.body;
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
 
-        btn.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-            }
-      document.querySelectorAll('.card img').forEach(image => {
-    image.onclick = () => {
-        document.getElementById('myModal').style.display = "block";
-        document.getElementById('imgFull').src = image.src;
-    };
-});
-        });
-    </script>
-    
+    // كود تغيير الثيم (ليلي/نهاري)
+    btn.addEventListener('click', () => {
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+        }
+    });
+
+    // كود التكبير الاحترافي
+    document.querySelectorAll('.card img').forEach(image => {
+        image.onclick = () => {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('imgFull').src = image.src;
+        };
+    });
+</script>
+
 <div id="myModal" class="modal" onclick="this.style.display='none'">
     <img class="modal-content" id="imgFull">
 </div>
-    
+
 </body>
 </html>
+
