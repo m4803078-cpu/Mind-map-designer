@@ -191,11 +191,11 @@
         </div>
     </section>
 
-    <script>
+<script>
     const btn = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // كود تغيير الثيم (ليلي/نهاري)
+    // 1. رجوع تشغيل زرار الوضع الليلي
     btn.addEventListener('click', () => {
         if (body.getAttribute('data-theme') === 'dark') {
             body.removeAttribute('data-theme');
@@ -204,16 +204,19 @@
         }
     });
 
-    // كود التكبير الاحترافي
+    // 2. كود تكبير الصور (الاحترافي)
     document.querySelectorAll('.card img').forEach(image => {
         image.onclick = () => {
-            document.getElementById('myModal').style.display = "block";
-            document.getElementById('imgFull').src = image.src;
-
-            </script>
+            const modal = document.getElementById('myModal');
+            const fullImg = document.getElementById('imgFull');
+            modal.style.display = "block";
+            fullImg.src = image.src;
+        };
+    });
+</script>
 
 <div id="myModal" class="modal" onclick="this.style.display='none'">
-    <img class="modal-content" id="imgFull" onclick="document.getElementById('myModal').style.display='none'">
+    <img class="modal-content" id="imgFull" onclick="this.parentElement.style.display='none'">
 </div>
 
 </body>
